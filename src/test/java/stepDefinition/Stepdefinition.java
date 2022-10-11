@@ -19,7 +19,7 @@ public class Stepdefinition extends BaseCLass {
 
         @And("add User details")
         public void addUserDetails() throws IOException {
-                pageFactory.getHomemethod12().Homemethod();
+                pageFactory.getHomePage().Homemethod();
         }
 
         @When("click on Register then logout")
