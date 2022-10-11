@@ -18,7 +18,7 @@ public class ComputerPageTestcase extends BaseCLass {
     Properties prop;
     By ClickOnComputer = By.xpath("//a[text()='Computers ']");
     By ClickOnNotebook = By.xpath("//a[text()=' Notebooks ']");
-     By Pricedropdown   = By.xpath("//select[@name='products-orderby']");
+     By Pricedropdown = By.xpath("//select[@name='products-orderby']");
     By SortingByPrice  =By.xpath("//option[@value='10']");
     By ClickingOnItem = By.xpath("//a[contains(text(),'Lenovo Thinkpad X1 Carbon Laptop')]");
     By ClickOnCopmp = By.xpath("//a[contains(text(),'Asus N551JK-XO076H Laptop')]");
@@ -30,7 +30,7 @@ public class ComputerPageTestcase extends BaseCLass {
     By CheckoutButton = By.xpath("//button[@name='checkout']");
     By RegisterButton =By.xpath("//button[text()='Register']");
     By ClickonGender= By.xpath("//span[@class='female']");
-    By EnterFirstName    = By.xpath("//input[@name='FirstName']");
+    By EnterFirstName = By.xpath("//input[@name='FirstName']");
     By EnterLastname=By.xpath("//input[@name='LastName']");
     By ClickonDay=By.xpath("//select[@name='DateOfBirthDay']");
     By ChooseDate=By.xpath("//*[contains(text(),'9')]");
@@ -41,30 +41,26 @@ public class ComputerPageTestcase extends BaseCLass {
     By EnterEmail=By.xpath("//input[@name='Email']");
     By EnterCompany=By.xpath("//input[@name='Company']");
     By EnterPassword=By.xpath("//input[@name='Password']");
-    By EnterConfPassword=By.xpath("//input[@name='ConfirmPassword']");
+    By EnterConfPassword = By.xpath("//input[@name='ConfirmPassword']");
     By ClickOnRegisterbutton =By.xpath("//button[@name='register-button']");
-    By IncreasingQuantity    =By.xpath("//input[@class='qty-input']");
-    By Enteremail            =By.xpath("//input[@name='Email']");
-    By EnterPass             =By.xpath("//input[@name='Password']");
-    By LoginButton           =By.xpath("//button[contains(text(),'Log in')]");
-    By ClickingOnCountyr     =By.xpath("//select[@name='BillingNewAddress.CountryId']");
-
+    By IncreasingQuantity =By.xpath("//input[@class='qty-input']");
+    By Enteremail = By.xpath("//input[@name='Email']");
+    By EnterPass = By.xpath("//input[@name='Password']");
+    By LoginButton = By.xpath("//button[contains(text(),'Log in')]");
+    By ClickingOnCountyr = By.xpath("//select[@name='BillingNewAddress.CountryId']");
     public ComputerPageTestcase(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(9000));
     }
-
     public void ClickOnComputer() {
         driver.findElement(ClickOnComputer).click();
         driver.findElement(ClickOnNotebook).click();
 
     }
-
     public void SortitemsByPrice() {
          driver.findElement(Pricedropdown).click();
          driver.findElement(SortingByPrice).click();
     }
-
     public void AddItemTocart() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(ClickingOnItem));
         driver.findElement(ClickingOnItem).click();
@@ -78,7 +74,6 @@ public class ComputerPageTestcase extends BaseCLass {
         driver.findElement(AgreeCheckbox).click();
         driver.findElement(CheckoutButton).click();
     }
-
     public void AddUserdetails() throws IOException {
         driver.findElement(RegisterButton).click();
 
