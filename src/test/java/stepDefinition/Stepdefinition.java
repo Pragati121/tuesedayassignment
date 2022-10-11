@@ -10,7 +10,7 @@ public class Stepdefinition extends BaseCLass {
 
         @Given("User is on Home Page")
         public void userIsOnHomePage() {
-                setUpDriver();
+
         }
         @When("click on Register")
         public void clickOnRegister() throws IOException {

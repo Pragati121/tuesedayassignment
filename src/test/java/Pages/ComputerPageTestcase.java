@@ -27,7 +27,7 @@ public class ComputerPageTestcase extends BaseCLass {
     By ShoppingCart = By.xpath("//a[@class='ico-cart']");
     By VerifyingCartitem = By.xpath("//span[@class='sku-number']");
     By AgreeCheckbox = By.xpath("//input[contains(@name,'termsofservice')]");
-    By CheckoutButton = By.xpath("//button[@name='checkout']");
+    private static String submit = "(//button[@type='%s'])[%d]";
     By RegisterButton =By.xpath("//button[text()='Register']");
     By ClickonGender= By.xpath("//span[@class='female']");
     By EnterFirstName = By.xpath("//input[@name='FirstName']");
@@ -48,6 +48,7 @@ public class ComputerPageTestcase extends BaseCLass {
     By EnterPass = By.xpath("//input[@name='Password']");
     By LoginButton = By.xpath("//button[contains(text(),'Log in')]");
     By ClickingOnCountyr = By.xpath("//select[@name='BillingNewAddress.CountryId']");
+
     public ComputerPageTestcase(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(9000));
@@ -61,8 +62,8 @@ public class ComputerPageTestcase extends BaseCLass {
          driver.findElement(Pricedropdown).click();
          driver.findElement(SortingByPrice).click();
     }
-    public void AddItemTocart() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(ClickingOnItem));
+    public void AddItemTocart() throws InterruptedException {
+     Thread.sleep(9000);
         driver.findElement(ClickingOnItem).click();
         driver.findElement(ClickOnCopmp).click();
         driver.findElement(AddingItemTocart).click();
@@ -72,7 +73,7 @@ public class ComputerPageTestcase extends BaseCLass {
         actual = driver.findElement(VerifyingCartitem).getText();
         Assert.isTrue(actual.equals("AS_551_LP"), "Expected result does not match with actual result");
         driver.findElement(AgreeCheckbox).click();
-        driver.findElement(CheckoutButton).click();
+        driver.findElement(By.xpath(String.format(submit, "submit", 6))).click();
     }
     public void AddUserdetails() throws IOException {
         driver.findElement(RegisterButton).click();
@@ -110,7 +111,7 @@ public class ComputerPageTestcase extends BaseCLass {
         driver.findElement(IncreasingQuantity).clear();
         driver.findElement(IncreasingQuantity).sendKeys("4");
         driver.findElement(AgreeCheckbox).click();
-        driver.findElement(CheckoutButton).click();
+        driver.findElement(By.xpath(String.format(submit, "submit", 6))).click();
     }
     public void login()
     {
@@ -126,6 +127,7 @@ public class ComputerPageTestcase extends BaseCLass {
         driver.findElement(EnterPass).sendKeys(prop.getProperty("Pass"));
         driver.findElement(LoginButton).click();
         driver.findElement(ClickingOnCountyr).click();
+
     }
 }
 
